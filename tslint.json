@@ -7,6 +7,15 @@
     "outFile": "../../built/local/tsc.js",
     "sourceMap": true
   },
+  "jsRules": {
+    "semicolon": [true, "never"],
+    "no-empty": true,
+    "no-unused-variable": true,
+    "prefer-const": true,
+    "prefer-template": [true, "allow-single-concat"],
+    "quotemark": [true, "single", "jsx-double"],
+    "space-before-function-paren": true
+  },
   "include": [
     "src/**/*"
   ],

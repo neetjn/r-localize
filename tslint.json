@@ -1,13 +1,5 @@
 {
-  "compilerOptions": {
-    "module": "system",
-    "noImplicitAny": true,
-    "removeComments": true,
-    "preserveConstEnums": true,
-    "outFile": "../../built/local/tsc.js",
-    "sourceMap": true
-  },
-  "jsRules": {
+  "rules": {
     "semicolon": [true, "never"],
     "no-empty": true,
     "no-unused-variable": true,
@@ -15,12 +7,5 @@
     "prefer-template": [true, "allow-single-concat"],
     "quotemark": [true, "single", "jsx-double"],
     "space-before-function-paren": true
-  },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/spec/*.ts"
-  ]
+  }
 }

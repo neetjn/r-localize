@@ -1,0 +1,18 @@
+dist: trusty
+language: node_js
+node_js:
+  - '8'
+install:
+  - npm install
+cache:
+  directories:
+    - node_modules
+script:
+  - npm run build
+# deploy:
+#   provider: npm
+#   email: john@neetgroup.net
+#   api_key:
+#     secure: JKhmrM0Q8bFtARFWrEkcBYB8iDaUJTnZH24oVuRWPwGzrvBbRAcmQrYz+MiEXgdx+atT6A2kwdPMDVQvutWAdoYZMnUwHZ6Z4KCuG4oDwSXv+9c82RxBnVXZYkrNkrWUVjXhB/WvcXR0XmuFH3u+clYpHFfZX5EPXpu8ZgZfTQfhvoV50pHQJkvh7aZs6pQN1o6HZuBzy3F9j9uvxO5sCAxmpTP6kZQGIcDOqBDPJFS5o13WDNuVBnAGTcp5t2OXCPyQVjsPE4WMPBhVecUY4u1unLRnMB9blLUh8fWVU7HloeTzyKoBU2tfmD6iXP/Sj1fGWKKrwUpLZua2bXyC8UUQy2tR/kfBBvGfQa1n2QQx77Df5vReDVCkKtbLuVhekSEUCQwQPIw6pKYadBbWbXpgH78Th0o7Cvnqo0wx2B6k7/4uUVpVDhADpjcRzeFVY3IYK6qm4ezxgev1EXk53yedIU6vT0r2WiNnORIaNURtpN9jS+CYBzcAs9d+bioYkDeKby0P1R2XebuI230aDn2Jd1ayqQSz9TYiLNN102A+noNB7UsscKGvlwkDjU6EsL33GVPJsuJbLA53fnHYfr7kb3Ade2oDSr304LC1umHbIEzVkCoyQtSHkqsT/HUVcCZnX0Xk9V16DN6sigq8NhogUyuwZ1qyIxsZtECkHxg=
+#   on:
+#     branch: master

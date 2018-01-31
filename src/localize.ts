@@ -1,16 +1,22 @@
-export default class Localize {
+import { Options } from './types'
+import * as Riot from 'riot-typescript'
+
+export default class Localize extends Riot.Observable {
+
+  public options: Options
+  public localizations: object
+  private _locale: string
 
   /**
    * Localization mixin for i18n implementation.
    * @param {riot} instance - Riot reference.
    * @param {Object} localizations - Dictionary of localizations.
-   * @param {Object} options - Options for mixin.
+   * @param {Options} options - Options for mixin.
    */
-  constructor(instance, localizations, options) {
-    this.$riot = instance
-    this.$riot.observable(this)
+  constructor (options: Options, localizations: object) {
+    super()
+    this.options = options
     this.localizations = localizations
-    this.options = options || { }
     if (!this.options.default || !this.options.locales)
       throw new Error(
         'Expected options to include a default locale and list of available locales')
@@ -23,7 +29,7 @@ export default class Localize {
    * @param {String} locale - Locale to use.
    * @returns {String}
    */
-  locale(locale = null) {
+  locale (locale = null) {
     if (locale) {
       if (this.options.locales.find(l => l == locale))
         throw new Error(`Locale "${ locale }" not recognized`)
@@ -41,7 +47,7 @@ export default class Localize {
    * @param {String} item - Item key to localize.
    * @param {String} locale - Optional locale, otherwise will use current.
    */
-  localize(item, locale = null) {
+  localize (item: string, locale = null) {
     const self = this
     let stub = self.localizations[locale || self._locale]
     if (locale && this.options.locales.find(l => l == locale))

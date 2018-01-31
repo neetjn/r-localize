@@ -27,7 +27,7 @@ export class Logger {
    * @param {string} message - message to log.
    * @param {int} timestamp - timestamp for log.
    */
-  _format (message, timestamp) {
+  _format (message: string, timestamp: number) {
     return `[${new Date(timestamp).toString()}]: (r-localize) "${message}"`
   }
 
@@ -36,7 +36,7 @@ export class Logger {
    * @param {string} type - Log type to filter by.
    * @returns {array}
    */
-  $get (type) {
+  $get (type: string) : Log[] {
     return this.logs.filter((log) => type ? log.type === type : true)
   }
 
@@ -44,7 +44,7 @@ export class Logger {
    * Pushes provided message to log store.
    * @param {string} message - Message to log.
    */
-  log (message) {
+  log (message: string) {
     const timestamp = this.time
     if (this.debugging)
       console.log(this._format(message, timestamp))
@@ -55,7 +55,7 @@ export class Logger {
    * Pushes provided message to log store.
    * @param {string} message - Message to log.
    */
-  warn (message) {
+  warn (message: string) {
     const timestamp = this.time
     if (this.debugging)
       console.warn(this._format(message, timestamp))
@@ -66,7 +66,7 @@ export class Logger {
    * Pushes provided message to log store.
    * @param {string} message - Message to log.
    */
-  error (message) {
+  error (message: string) {
     const timestamp = this.time
     if (this.debugging)
       console.error(this._format(message, timestamp))

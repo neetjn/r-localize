@@ -1,5 +1,5 @@
 <localize>
-  <script type="es6">
+  <script type="typescript">
     const self = this
 
     self.localization = function() {

@@ -1,5 +1,6 @@
 {
   "rules": {
+    "curly": [true, "as-needed"],
     "semicolon": [true, "never"],
     "no-empty": true,
     "no-unused-variable": true,

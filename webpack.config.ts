@@ -7,7 +7,7 @@ const config: webpack.Configuration = {
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'r-localize.js',
-    library: 'someLibName',
+    library: 'Localize',
     libraryTarget: 'umd',
   },
   module: {

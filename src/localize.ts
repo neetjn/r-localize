@@ -1,6 +1,8 @@
+import * as Riot from 'riot-typescript'
+
 import { Options } from './types'
 import { Logger } from './logger'
-import * as Riot from 'riot-typescript'
+
 
 class Localize extends Riot.Observable {
 
@@ -15,7 +17,8 @@ class Localize extends Riot.Observable {
    * @param {Options} options - Options for mixin.
    */
   constructor (options: Options, localizations: object) {
-    super() // # initialize observable
+    super()
+
     // # checks necessary for non ts use
     if (!options.default || !options.locales)
       throw new Error(

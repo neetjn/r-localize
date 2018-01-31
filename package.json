@@ -7,6 +7,8 @@
     "test": "test"
   },
   "devDependencies": {
+    "@types/node": "^9.4.0",
+    "@types/webpack": "^3.8.4",
     "electron": "^1.7.11",
     "karma-electron": "^5.2.2",
     "karma-riot": "^2.0.0",

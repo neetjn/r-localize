@@ -2,10 +2,10 @@ import * as webpack from 'webpack'
 import * as path from 'path'
 
 const config: webpack.Configuration = {
-  entry: './foo.js',
+  entry: path.resolve(__dirname, './src/main.ts'),
   devtool: 'inline-source-map',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, './dist'),
     filename: 'r-localize.js',
     library: 'someLibName',
     libraryTarget: 'umd',

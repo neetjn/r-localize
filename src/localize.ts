@@ -40,6 +40,7 @@ export class Localize extends Riot.Observable {
       this.options.default
 
     this.$logger = new Logger(this.options.debugging)
+    this.$logger.log('Localize mixin instantiated.')
   }
 
   /**
@@ -58,7 +59,7 @@ export class Localize extends Riot.Observable {
   locale (locale = null) : string {
     if (locale) {
       if (!this.options.locales.find(l => l == locale)) {
-        this.$logger.error(`Locale "${ locale }" not recognized`)
+        this.$logger.error(`Locale "${ locale }" not recognized.`)
         return
       }
       this.trigger('update')
@@ -67,7 +68,7 @@ export class Localize extends Riot.Observable {
       this._locale = locale
       this.trigger('updated')
     }
-
+    this.$logger.log(`Locale changed to "${ locale }".`)
     return this._locale
   }
 
@@ -80,14 +81,21 @@ export class Localize extends Riot.Observable {
   localtize (item: string, locale = null) : string {
     const self = this
     let stub = self.localizations[locale || self._locale]
-    if (locale && this.options.locales.find(l => l == locale))
-      throw new Error(`Locale "${ locale }" not recognized`)
-    item.split('.').forEach(key => {
-      if (stub[key])
-        stub = stub[key]
-      else
-        throw new Error(`Provided item "${ item }" could not be localized in locale "${ locale || self._locale }".`)
-    })
+    if (locale && this.options.locales.find(l => l == locale)) {
+      this.$logger.error(`Locale "${ locale }" not recognized.`)
+      return this.options.fallback
+    }
+    const branches = item.split('.')
+
+    for (const branch in branches)
+      if (stub[branch])
+        stub = stub[branch]
+        else {
+          self.$logger.error(`Provided item "${ item }" could not be localized in locale "${ locale || self._locale }".`)
+          return this.options.fallback
+        }
+
+    this.$logger.log(`Localized item ${ item } retrieved for locale "${ locale || self._locale }".`)
     self.trigger('localize', { item, locale: locale || self._locale })
     return stub
   }

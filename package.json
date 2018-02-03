@@ -21,7 +21,11 @@
     "webpack": "^3.10.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "bundle": "node_modules/.bin/webpack --config webpack.config.ts",
+    "lint": "node_modules/.bin/tslint --project tsconfig.json",
+    "test": "node_modules/.bin/karma",
+    "build": "npm run lint && npm run bundle && npm run test"
+
   },
   "repository": {
     "type": "git",

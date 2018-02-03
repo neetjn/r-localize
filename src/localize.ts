@@ -4,9 +4,9 @@ import { Options } from './types'
 import { Logger } from './logger'
 
 
-class Localize extends Riot.Observable {
+export class Localize extends Riot.Observable {
 
-  private logger: Logger
+  private $logger: Logger
   private options: Options
   private localizations: object
   private _locale: string
@@ -39,7 +39,7 @@ class Localize extends Riot.Observable {
     else
       this.options.default
 
-    this.logger = new Logger(this.options.debugging)
+    this.$logger = new Logger(this.options.debugging)
   }
 
   /**
@@ -53,12 +53,14 @@ class Localize extends Riot.Observable {
   /**
    * Get or set current locale.
    * @param {string} locale - Locale to use.
-   * @returns {string}
+   * @returns {string|void}
    */
   locale (locale = null) : string {
     if (locale) {
-      if (this.options.locales.find(l => l == locale))
-        throw new Error(`Locale "${ locale }" not recognized`)
+      if (!this.options.locales.find(l => l == locale)) {
+        this.$logger.error(`Locale "${ locale }" not recognized`)
+        return
+      }
       this.trigger('update')
       if (this.webStore)
         window.localStorage.setItem('localization', locale)
@@ -75,7 +77,7 @@ class Localize extends Riot.Observable {
    * @param {string} locale - Optional locale, otherwise will use current.
    * @returns {string}
    */
-  localize (item: string, locale = null) : string {
+  localtize (item: string, locale = null) : string {
     const self = this
     let stub = self.localizations[locale || self._locale]
     if (locale && this.options.locales.find(l => l == locale))

@@ -4,7 +4,7 @@ import { Options } from './types'
 import { Logger } from './logger'
 
 
-export class Localize extends Riot.Observable {
+export class Localize extends Riot.Element {
 
   private $logger: Logger
   private options: Options

@@ -14,9 +14,9 @@ export class Tag extends Riot.Element {
 
   localization () {
     if (!this.opts.attr)
-      this.root.innerHTML = this.localize.localize(this.opts.item)
+      this.root.innerHTML = this.localize.translate(this.opts.item)
     else
-      this.root.setAttribute(this.opts.attr, this.localize.localize(this.opts.item))
+      this.root.setAttribute(this.opts.attr, this.localize.translate(this.opts.item))
   }
 
 }

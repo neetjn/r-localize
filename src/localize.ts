@@ -78,7 +78,7 @@ export class Localize extends Riot.Observable {
    * @param {string} locale - Optional locale, otherwise will use current.
    * @returns {string}
    */
-  localtize (item: string, locale = null) : string {
+  translate (item: string, locale = null) : string {
     const self = this
     let stub = self.localizations[locale || self._locale]
     if (locale && this.options.locales.find(l => l == locale)) {

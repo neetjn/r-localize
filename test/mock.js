@@ -21,22 +21,10 @@ const MOCK = {
       }
     }
   },
-  tags:{
-    top: {
-      name: 'top',
-      template: '<h1 data-is="localize" item="header" />'
-    },
-    deep: {
-      name: 'deep',
-      template: '<h1 data-is="localize" item="menu.help" />'
-    },
-    attribute: {
-      name: 'attribute',
-      template: '<h1 data-is="localize" item="menu.help" attr="title" />'
-    },
-    change: {
-      name: 'change',
-      template: '<h1 data-is="localize" item="header" /><br/><button click={ localize.locale("es-SP") }>Spanish</button>'
-    }
+  tags: {
+    top: '<h1 data-is="localize" item="header" />',
+    deep: '<h1 data-is="localize" item="menu.help" />',
+    attribute: '<h1 data-is="localize" item="header" attr="title" />',
+    change: '<h1 data-is="localize" item="header" />'
   }
 }

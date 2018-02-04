@@ -17,7 +17,7 @@ describe('r-localize localize mixin', function() {
 
   it('logger will properly store logs by type', function() {
     expect(localize.$logger).toBeDefined()
-    expect(localize.options.debugging).toBeTruthy()
+    expect(localize.options.debug).toBeTruthy()
     const message = new Date().getTime()
     const types = {
       log: 'general',

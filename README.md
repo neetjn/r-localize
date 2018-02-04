@@ -38,7 +38,7 @@ const options = {
   debug: true,
   default: 'en-US',
   fallback: '-',  
-  available: ['en-US', 'es-SP'],
+  available: ['en-US', 'es-SP']
 }
 
 const localizations = {
@@ -100,13 +100,13 @@ For fetching a specific locale item programatically within a component method:
 
 The plugin takes 5 options,
 
-> **`debug`**: Spit info, warnings and errors to console.
+> **`*available`**: List of available localizations.
 
-> **`default`**: Default locale key to target.
+> **`*debug`**: Spit info, warnings and errors to console.
 
-> **`fallback`**: Default text to show if localization for current language not found.
+> **`*default`**: Default locale key to target.
 
-> **`available`**: List of available localizations.
+> **`*fallback`**: Default text to show if localization for current language not found.
 
 > **`webStore`**: If the mixin is accessed within a web context and option `webStore` is enabled, mixin will store the locale in local storage for the next visit.
 

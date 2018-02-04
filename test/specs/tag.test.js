@@ -26,6 +26,12 @@ describe('r-localize localize tag', function() {
     expect(document.querySelector('h1').getAttribute('title')).toBe(localize.localizations['en-US'].header)
   })
 
+  it('will properly localize items by locale', function() {
+    riot.tag('tag', MOCK.tags.locale)
+    riot.mount('tag')
+    expect(document.querySelector('h1').textContent).toBe(localize.localizations['es-SP'].header)
+  })
+
   it('will properly update items', function(done) {
     riot.tag('tag', MOCK.tags.change)
     riot.mount('tag')

@@ -22,9 +22,10 @@ const MOCK = {
     }
   },
   tags: {
-    top: '<h1 data-is="localize" item="header" />',
-    deep: '<h1 data-is="localize" item="menu.help" />',
-    attribute: '<h1 data-is="localize" item="header" attr="title" />',
-    change: '<h1 data-is="localize" item="header" />'
+    top: '<h1 data-is="localize" t="header" />',
+    deep: '<h1 data-is="localize" t="menu.help" />',
+    attribute: '<h1 data-is="localize" t="{{ i: \'header\', attr: \'title\' }}" />',
+    change: '<h1 data-is="localize" t="header" />',
+    locale: '<h1 data-is="localize" t="{{ i: \'header\', l: \'es-SP\' }}" />'
   }
 }

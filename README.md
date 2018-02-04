@@ -8,7 +8,7 @@
 
 ### About
 
-*r-localize* is a localization plugin for Riot.js based off of Vue.js v-localize project.
+**r-localize** is a localization plugin for Riot.js based off of Vue.js v-localize project.
 
 ### Support
 
@@ -16,7 +16,7 @@
 |--------|------|---------|----------|--------|
 | 5.0+ ✔ |  ✔   | 4.0+ ✔  | 11.50+ ✔ | 5.0+ ✔ |
 
-**r-localize** was developed using Riot.js 3, support previous versions is not available.
+This project was developed using Riot.js 3, support previous versions is not available.
 
 ### Usage
 
@@ -35,10 +35,10 @@ import riot from 'riot'
 import Localize from 'r-localize'
 
 const options = {
-  available: ['en-US', 'es-SP'],
-  debugging: true,
+  debug: true,
   default: 'en-US',
-  fallback: '-'
+  fallback: '-',  
+  available: ['en-US', 'es-SP'],
 }
 
 const localizations = {
@@ -59,7 +59,7 @@ const localizations = {
 localize = new Localize(riot, options, localizations)
 ```
 
-Once your Riot app has been mounted, the language can be changed by calling `localize.locale(args*)` from your component. If the mixin is accessed within a web context, it will automatically store the locale in local storage for the next visit.
+Once your Riot app has been mounted, the language can be changed by calling `localize.locale(args*)` from your component.
 
 ```html
 <component>
@@ -79,9 +79,9 @@ You can specify your localizations like so:
 
 ```html
 <!-- add a localized title to this element targeting en-US -->
-<h1 data-is="localize" t={{ i: 'header.title', attr: 'title' }} />
+<h1 data-is="localize" t={{ i: 'header', attr: 'title' }} />
 <!-- replace this element's text with localized item -->
-<h1 data-is="localize" t="header.title">
+<h1 data-is="localize" t="menu.help">
 ```
 
 Alternatively, you can fetch your current localization by calling `locale` without any arguments.
@@ -93,13 +93,12 @@ Alternatively, you can fetch your current localization by calling `locale` witho
 For fetching a specific locale item programatically within a component method:
 
 ```js
-<h1>Translated Item: { localize.translate('header.title', 'es-SP') }</h1>
+<h1>Translated Item: { localize.translate('header', 'es-SP') }</h1>
 ```
-
 
 ### Configuration
 
-The plugin takes 4 options,
+The plugin takes 5 options,
 
 > **`debug`**: Spit info, warnings and errors to console.
 
@@ -108,3 +107,9 @@ The plugin takes 4 options,
 > **`fallback`**: Default text to show if localization for current language not found.
 
 > **`available`**: List of available localizations.
+
+> **`webStore`**: If the mixin is accessed within a web context and option `webStore` is enabled, mixin will store the locale in local storage for the next visit.
+
+---
+
+Copyright (c) 2017 John Nolette Licensed under the MIT license.

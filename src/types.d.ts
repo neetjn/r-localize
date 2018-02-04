@@ -3,7 +3,7 @@ export interface Options {
   available: string[]
   fallback?: string
   webStore?: boolean
-  debugging?: boolean
+  debug?: boolean
 }
 
 export interface Log {

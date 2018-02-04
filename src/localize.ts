@@ -28,7 +28,7 @@ export default class Localize extends Riot.Observable {
         throw Error(`Locale "${locale}" has no mappings available`)
     })
     // # set defaults
-    options.debugging = typeof(options.debugging) == 'undefined' ? false : options.debugging
+    options.debug = typeof(options.debug) == 'undefined' ? false : options.debug
     options.fallback = options.fallback || '?'
     options.webStore = options.webStore || false
     this.options = options
@@ -39,7 +39,7 @@ export default class Localize extends Riot.Observable {
     else
       this._locale = this.options.default
 
-    this.$logger = new Logger(this.options.debugging)
+    this.$logger = new Logger(this.options.debug)
     this.$logger.log('Localize mixin instantiated.')
 
     instance.mixin({ localize: this })

@@ -2,7 +2,7 @@ const MOCK = {
   localize: {
     options: {
       available: ['en-US', 'es-SP'],
-      debugging: true,
+      debug: true,
       default: 'en-US',
       fallback: '-'
     },

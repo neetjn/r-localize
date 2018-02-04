@@ -29,7 +29,9 @@ Single-quoted strings are preferred to double-quoted strings.
 
 ### III. Testing
 
-* Before putting in a pull request, be sure to verify you've built all your changes and your changes pass our provided tests.
+Before putting in a pull request, be sure to verify you've built all your changes and your changes pass our provided tests.
+
+To run your tests, use `npm run test`.
 
 ### IV. Creating Issues
 

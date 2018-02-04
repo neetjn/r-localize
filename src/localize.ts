@@ -3,8 +3,7 @@ import * as Riot from 'riot-typescript'
 import { Options } from './types'
 import { Logger } from './logger'
 
-
-export class Localize extends Riot.Element {
+export class Localize extends Riot.Observable {
 
   private $logger: Logger
   private options: Options
@@ -37,7 +36,7 @@ export class Localize extends Riot.Element {
     if (this.webStore)
       this._locale = window.localStorage.getItem('localization') || this.options.default
     else
-      this.options.default
+      this._locale = this.options.default
 
     this.$logger = new Logger(this.options.debugging)
     this.$logger.log('Localize mixin instantiated.')
@@ -81,19 +80,21 @@ export class Localize extends Riot.Element {
   translate (item: string, locale = null) : string {
     const self = this
     let stub = self.localizations[locale || self._locale]
-    if (locale && this.options.locales.find(l => l == locale)) {
+    if (locale && !this.options.locales.find(l => l == locale)) {
       this.$logger.error(`Locale "${ locale }" not recognized.`)
       return this.options.fallback
     }
     const branches = item.split('.')
-
-    for (const branch in branches)
+    // # split up to terminate in the event a branch is not found
+    for (const b in branches) {
+      const branch = branches[b]
       if (stub[branch])
         stub = stub[branch]
         else {
           self.$logger.error(`Provided item "${ item }" could not be localized in locale "${ locale || self._locale }".`)
           return this.options.fallback
         }
+    }
 
     this.$logger.log(`Localized item ${ item } retrieved for locale "${ locale || self._locale }".`)
     self.trigger('localize', { item, locale: locale || self._locale })

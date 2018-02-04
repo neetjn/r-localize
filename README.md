@@ -110,6 +110,12 @@ The plugin takes 5 options,
 
 > **`webStore`**: If the mixin is accessed within a web context and option `webStore` is enabled, mixin will store the locale in local storage for the next visit.
 
+### Contributors
+
+* **John Nolette** (john@neetgroup.net)
+
+Contributing guidelines can be found [here](https://github.com/neetjn/r-localize/blob/master/CONTRIBUTING.md).
+
 ---
 
 Copyright (c) 2017 John Nolette Licensed under the MIT license.

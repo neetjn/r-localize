@@ -13,7 +13,6 @@
     "karma-electron": "^5.2.2",
     "karma-riot": "^2.0.0",
     "karma-typescript": "^3.0.10",
-    "riot-typed": "^1.1.0",
     "riot-typescript": "^1.0.10",
     "ts-loader": "^3.3.1",
     "ts-node": "^4.1.0",

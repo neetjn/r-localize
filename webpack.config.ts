@@ -2,13 +2,14 @@ import * as webpack from 'webpack'
 import * as path from 'path'
 
 const config: webpack.Configuration = {
-  entry: path.resolve(__dirname, './src/main.ts'),
+  entry: path.resolve(__dirname, './src/localize.ts'),
   devtool: 'inline-source-map',
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'r-localize.js',
     library: 'Localize',
-    libraryTarget: 'umd',
+    libraryExport: 'default',
+    libraryTarget: 'umd'
   },
   module: {
     rules: [

@@ -1,10 +1,24 @@
 const MOCK = {
   localize: {
-    localizations: require('./i18n.mock.json'),
     options: {
+      available: ['en-US', 'es-SP'],
       debugging: true,
       default: 'en-US',
       fallback: '-'
+    },
+    localizations: {
+      'en-US': {
+        'header': 'international',
+        'menu': {
+          'help': 'Help'
+        }
+      },
+      'es-SP': {
+        'header': 'internacional',
+        'menu': {
+          'help': 'Ayuda'
+        }
+      }
     }
   },
   tags:{

@@ -2,8 +2,9 @@ import * as Riot from 'riot-typescript'
 
 import { Options } from './types'
 import { Logger } from './logger'
+import { Tag } from './localize.tag'
 
-export class Localize extends Riot.Observable {
+export default class Localize extends Riot.Observable {
 
   private $logger: Logger
   private options: Options
@@ -15,14 +16,14 @@ export class Localize extends Riot.Observable {
    * @param {object} localizations - Dictionary of localizations.
    * @param {Options} options - Options for mixin.
    */
-  constructor (options: Options, localizations: object) {
+  constructor (instance: any, options: Options, localizations: object) {
     super()
 
     // # checks necessary for non ts use
-    if (!options.default || !options.locales)
+    if (!options.default || !options.available)
       throw new Error(
         'Expected options to include a default locale and list of available locales')
-    options.locales.forEach(locale => {
+    options.available.forEach(locale => {
       if (!localizations[locale])
         throw Error(`Locale "${locale}" has no mappings available`)
     })
@@ -40,6 +41,9 @@ export class Localize extends Riot.Observable {
 
     this.$logger = new Logger(this.options.debugging)
     this.$logger.log('Localize mixin instantiated.')
+
+    instance.mixin({ localize: this })
+    instance.tag('localize', false, false, false, Tag)
   }
 
   /**
@@ -57,7 +61,7 @@ export class Localize extends Riot.Observable {
    */
   locale (locale = null) : string {
     if (locale) {
-      if (!this.options.locales.find(l => l == locale)) {
+      if (!this.options.available.find(l => l == locale)) {
         this.$logger.error(`Locale "${ locale }" not recognized.`)
         return
       }
@@ -65,9 +69,9 @@ export class Localize extends Riot.Observable {
       if (this.webStore)
         window.localStorage.setItem('localization', locale)
       this._locale = locale
+      this.$logger.log(`Locale changed to "${ locale }".`)
       this.trigger('updated')
     }
-    this.$logger.log(`Locale changed to "${ locale }".`)
     return this._locale
   }
 
@@ -80,7 +84,7 @@ export class Localize extends Riot.Observable {
   translate (item: string, locale = null) : string {
     const self = this
     let stub = self.localizations[locale || self._locale]
-    if (locale && !this.options.locales.find(l => l == locale)) {
+    if (locale && !this.options.available.find(l => l == locale)) {
       this.$logger.error(`Locale "${ locale }" not recognized.`)
       return this.options.fallback
     }
@@ -96,7 +100,7 @@ export class Localize extends Riot.Observable {
         }
     }
 
-    this.$logger.log(`Localized item ${ item } retrieved for locale "${ locale || self._locale }".`)
+    this.$logger.log(`Localized item "${ item }" retrieved for locale "${ locale || self._locale }".`)
     self.trigger('localize', { item, locale: locale || self._locale })
     return stub
   }

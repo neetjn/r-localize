@@ -1,6 +1,6 @@
 export interface Options {
   default: string
-  locales: string[]
+  available: string[]
   fallback?: string
   webStore?: boolean
   debugging?: boolean

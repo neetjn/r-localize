@@ -2,8 +2,10 @@ module.exports = function(config) {
   config.set({
     logLevel: config.LOG_INFO,
     colors: true,
+    autoWatch: true,
+    singleRun: true,
     browsers: ['Electron'],
-    frameworks: ['jasmine', 'riot', 'electron'],
+    frameworks: ['jasmine', 'riot'],
     reporters: ['progress', 'coverage'],
     preprocessors: {
       '../dist/r-localize.js': ['coverage']
@@ -15,10 +17,6 @@ module.exports = function(config) {
         {type:'json', dir : '../coverage/'}
       ]
     },
-    plugins: [
-      'karma-electron',
-      'karma-riot'
-    ],
     files: [
       '../dist/r-localize.js',
       'mock.js',

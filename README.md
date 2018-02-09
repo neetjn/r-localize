@@ -16,7 +16,7 @@
 |--------|------|---------|----------|--------|
 | 5.0+ ✔ |  ✔   | 4.0+ ✔  | 11.50+ ✔ | 5.0+ ✔ |
 
-This project was developed using Riot.js 3, support previous versions is not available.
+This project was developed using Riot.js 3, support for previous versions is not available.
 
 ### Usage
 

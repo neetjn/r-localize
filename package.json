@@ -1,6 +1,6 @@
 {
   "name": "r-localize",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Localization mixin and tag for Riot.js based off of Vue.js v-localize project.",
   "main": "index.js",
   "directories": {

@@ -26,6 +26,7 @@ const MOCK = {
     deep: '<h1 data-is="localize" t="menu.help" />',
     attribute: '<h1 data-is="localize" t="{{ i: \'header\', attr: \'title\' }}" />',
     change: '<h1 data-is="localize" t="header" />',
-    locale: '<h1 data-is="localize" t="{{ i: \'header\', l: \'es-SP\' }}" />'
+    locale: '<h1 data-is="localize" t="{{ i: \'header\', l: \'es-SP\' }}" />',
+    fallbackContent: '<h1 data-is="localize" t="impossible">Hello World</h1>'
   }
 }

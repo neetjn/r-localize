@@ -29,6 +29,7 @@ export default class Localize extends Riot.Observable {
     })
     // # set defaults
     options.debug = typeof(options.debug) == 'undefined' ? false : options.debug
+    options.fallbackContent = options.fallbackContent || false
     options.fallback = options.fallback || '?'
     options.webStore = options.webStore || false
     this.options = options

@@ -106,6 +106,8 @@ The plugin takes 5 options,
 
 > **`*default`**: Default locale key to target.
 
+> **`fallbackContent`**: Use the existing node's text content if enabled and requested localization is not found. 
+
 > **`*fallback`**: Default text to show if localization for current language not found.
 
 > **`webStore`**: If the mixin is accessed within a web context and option `webStore` is enabled, mixin will store the locale in local storage for the next visit.

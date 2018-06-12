@@ -7,6 +7,12 @@ export interface Options {
   debug?: boolean
 }
 
+export interface Locale {
+  locale: string
+  orientation?: string
+  fontFamily?: string
+}
+
 export interface Log {
   type: string
   message: string

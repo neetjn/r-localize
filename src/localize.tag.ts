@@ -10,6 +10,15 @@ export function Tag (opts : object) {
     if (this.localize)
       if (this.localize.options.fallbackContent && translation == this.localize.options.fallback)
         translation = nodeContent
+
+    const localeOptions = this.localize.options.available.filter(l => l.locale == this.localize.locale)
+
+    if (localeOptions)
+        if (localeOptions.orientation)
+          self.root.setAttribute('dir', localeOptions.orientation)
+        if (localeOptions.fontFamily)
+          self.root.style.fontFamily = localeOptions.fontFamily
+
     if (typeof self.opts.t == 'string')
       self.root.innerHTML = translation
     else

@@ -24,7 +24,7 @@ export default class Localize extends Riot.Observable {
       throw new Error(
         'Expected options to include a default locale and list of available locales')
     options.available.forEach(locale => {
-      if (!localizations[locale])
+      if (!localizations[locale.locale || locale])
         throw Error(`Locale "${locale}" has no mappings available`)
     })
     // # set defaults

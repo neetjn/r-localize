@@ -102,13 +102,30 @@ The plugin takes 5 options,
 
 > **`*available`**: List of available localizations.
 
+```js
+['en-US', 'es-SP', 'pr-BR', {
+  locale: 'ar-MS',
+  orientation: 'rtl'
+}]
+```
+
 > **`*debug`**: Spit info, warnings and errors to console.
 
 > **`*default`**: Default locale key to target.
 
+> **`fallbackContent`**: Use the existing node's text content if enabled and requested localization is not found. 
+
 > **`*fallback`**: Default text to show if localization for current language not found.
 
 > **`webStore`**: If the mixin is accessed within a web context and option `webStore` is enabled, mixin will store the locale in local storage for the next visit.
+
+### Locale Options
+
+Locale configuration currently supports the following options,
+
+> **`orientation`**: Text direction of target element, useful for orientation of script languages.
+
+> **`fontFamily`**: Font family to change to. Re: [https://www.w3schools.com/jsref/prop_style_fontfamily.asp]()
 
 ### Contributors
 

@@ -15,6 +15,10 @@ describe('r-localize localize mixin', function() {
     expect(localize.translate('header', 'es-SP')).toBe(localize.localizations['es-SP'].header)
   })
 
+  it('will properly provide fallback if translation not found', function() {
+    expect(localize.translate('impossible')).toBe(localize.options.fallback)
+  })
+
   it('logger will properly store logs by type', function() {
     expect(localize.$logger).toBeDefined()
     expect(localize.options.debug).toBeTruthy()

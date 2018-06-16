@@ -1,6 +1,6 @@
 {
   "name": "r-localize",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Localization mixin and tag for Riot.js based off of Vue.js v-localize project.",
   "main": "index.js",
   "directories": {
@@ -9,10 +9,10 @@
   "devDependencies": {
     "@types/node": "^9.4.0",
     "@types/webpack": "^3.8.4",
-    "electron": "^1.7.11",
+    "electron": "^2.0.2",
     "jasmine": "^2.9.0",
-    "karma": "^2.0.0",
-    "karma-coverage": "^1.1.1",
+    "karma": "^2.0.2",
+    "karma-coverage": "^1.1.2",
     "karma-electron": "^5.2.2",
     "karma-jasmine": "^1.1.1",
     "karma-riot": "^2.0.0",

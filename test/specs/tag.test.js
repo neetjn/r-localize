@@ -39,6 +39,16 @@ describe('r-localize localize tag', function() {
     expect(document.querySelector('h1').textContent).toBe('Hello World')
   })
 
+  it('will properly apply locale options', function(done) {
+    riot.tag('tag', MOCK.tags.options)
+    riot.mount('tag')
+    localize.locale('ar-SA')
+    const node = document.querySelector('h1')
+    expect(node.textContent).toBe('ترجمه')
+    expect(node.getAttribute('dir')).toBe('rtl')
+    expect(node.style.fontFamily).toBe('Arial, Helvetica, sans-serif')
+  })
+
   it('will properly update items', function(done) {
     riot.tag('tag', MOCK.tags.change)
     riot.mount('tag')

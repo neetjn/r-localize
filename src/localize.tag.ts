@@ -15,12 +15,12 @@ export function Tag (opts : object) {
     const localeOptions = self.localize.options.available.find(
       l => typeof l === 'object' && l.locale === locale)
 
-    if (localeOptions)
+    if (localeOptions) {
       if (localeOptions.orientation)
         self.root.setAttribute('dir', localeOptions.orientation)
       if (localeOptions.fontFamily)
         self.root.style.fontFamily = localeOptions.fontFamily
-
+    }
     if (typeof self.opts.t === 'string')
       self.root.innerHTML = translation
     else

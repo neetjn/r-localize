@@ -11,7 +11,8 @@ export function Tag (opts : object) {
       if (this.localize.options.fallbackContent && translation == this.localize.options.fallback)
         translation = nodeContent
 
-    const localeOptions = this.localize.options.available.filter(l => l.locale == this.localize.locale)
+    const localeOptions = this.localize.options.available.filter(
+      l => typeof l === 'object' && l.locale == this.localize.locale)
 
     if (localeOptions)
         if (localeOptions.orientation)

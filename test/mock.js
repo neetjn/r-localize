@@ -3,7 +3,7 @@ const MOCK = {
     options: {
       available: ['en-US', 'es-SP', {
         locale: 'ar-SA',
-        'orientation': 'rtl',
+        orientation: 'rtl',
         fontFamily: 'Arial, Helvetica, sans-serif'
       }],
       debug: true,

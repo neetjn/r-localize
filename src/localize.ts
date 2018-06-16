@@ -18,13 +18,13 @@ export default class Localize extends Riot.Observable {
    */
   constructor (instance: any, options: Options, localizations: object) {
     super()
-
     // # checks necessary for non ts use
     if (!options.default || !options.available)
       throw new Error(
         'Expected options to include a default locale and list of available locales')
     options.available.forEach(locale => {
-      if (!localizations[locale.locale || locale])
+      locale = typeof locale === 'object' ? locale.locale : locale
+      if (!localizations[locale])
         throw Error(`Locale "${locale}" has no mappings available`)
     })
     // # set defaults

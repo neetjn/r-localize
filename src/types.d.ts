@@ -8,7 +8,7 @@ export interface Options {
 }
 
 export interface Locale {
-  locale: string
+  locale: any
   orientation?: string
   fontFamily?: string
 }

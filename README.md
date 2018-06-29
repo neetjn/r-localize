@@ -135,4 +135,4 @@ Contributing guidelines can be found [here](https://github.com/neetjn/r-localize
 
 ---
 
-Copyright (c) 2017 John Nolette Licensed under the MIT license.
+Copyright (c) 2018 John Nolette Licensed under the MIT license.
